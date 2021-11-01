@@ -1,0 +1,64 @@
+///<reference types="cypress" />
+
+function randomIntFromInterval(min, max) 
+{ // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+  
+  const rndInt = randomIntFromInterval(10000000, 99999999)
+
+describe('virtoo', () => {
+    it('realizar login', () => {
+        cy.visit('http://inf.unievangelica.edu.br/sistema/virtoo/dashboard');
+        cy.get('[name="username"]').type('ADMINISTRADOR');
+         
+
+        cy.get('[name="senha"]').type('123456');
+        cy.get('[name="acessar"]').click();
+
+        
+    });
+
+    it('deve pode realizar cadastro', () => {
+        cy.get('[ng-reflect-permissions="PERM_PESSOA_LISTAR,PERM_ALUNO_"] > [appnavdropdowntoggle=""]').click();
+        cy.get('[ng-reflect-permission="PERM_PESSOA_LISTAR"] > a').click();
+        cy.get('.btn > span').click();
+
+        cy.get('.col-md-6 > input-container > .form-group > .form-control').type(`João Victor de Alcântara${rndInt}`);
+        cy.get('.input-group > .form-control').type('01/02/1989');
+        cy.get(':nth-child(1) > .col-md-5 > input-container > .form-group > .form-control').type(`JoaoDeAlcantara${rndInt}@gmail.com`);
+        cy.get('.col-md-2.col-sm-6 > input-container > .form-group > .form-control').select('Masculino');
+        cy.get('.col-md-3 > input-container > .form-group > .form-control').select('Solteiro');
+        cy.get('.ng-invalid.ng-dirty > :nth-child(2) > :nth-child(1) > input-container > .form-group > .form-control').type('Augusta de Alcântara');
+        cy.get('.ng-invalid.ng-dirty > :nth-child(2) > :nth-child(2) > input-container > .form-group > .form-control').type('Escobar de Alcântara');
+        cy.get(':nth-child(3) > :nth-child(1) > input-container > .form-group > .form-control').select('Brasil');
+        cy.get(':nth-child(3) > :nth-child(2) > input-container > .form-group > .form-control').select('Piauí');
+        cy.get(':nth-child(3) > input-container > .form-group > .form-control').select('Bela Vista do Piaui');
+        cy.get('.col-md-4 > input-container > .form-group > .form-control').select('Passaporte');
+        cy.get('.panel-body > .col-md-5 > input-container > .form-group > .form-control').type(`${rndInt}`);
+        cy.get('.btn-success').click();
+        cy.wait(3000);
+        cy.get('app-dados-complementares-form > [style="margin-bottom:0%"] > .panel-footer > .pull-right > div > .btn-success').click();
+        cy.wait(3000);
+        cy.get('app-dados-matricula-form > [style="margin-bottom:0%"] > .panel-footer > .pull-right > div > .btn-success').click();
+        cy.wait(3000);
+        cy.get('app-dados-matricula-form > [style="margin-bottom:0%"] > .panel-footer > .pull-right > div > .btn-default').click();
+        cy.wait(3000);
+        
+      });
+
+
+
+
+});
+
+
+
+
+    
+
+
+    
+
+
+
