@@ -25,6 +25,7 @@ describe('Login', () => {
     cy.url().should('include', '/dashboard');
   });
 });
+
 In this example, we import the login function from Virtoo and use it to simulate a user logging into the application with a username and password. We then use Cypress to verify that the user has been redirected to the dashboard page after logging in.
 
 Conclusion:
