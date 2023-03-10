@@ -9,20 +9,8 @@ Getting Started:
 To get started with Virtoo, you'll need to have Node.js and npm installed on your machine. Once you have those installed, you can simply run the following command to install Virtoo:
 
 npm install virtoo --save-dev
+
 Once you have Virtoo installed, you can start writing tests for your web application. Virtoo provides a simple and intuitive API that allows you to interact with your web application and perform various actions.
-
-Example Usage:
-
-Here is an example of how you can use Virtoo to test a login page:
-
-import { login } from 'virtoo';
-
-describe('Login', () => {
-  it('should login successfully', () => {
-    login('username', 'password');
-    cy.url().should('include', '/dashboard');
-  });
-});
 
 In this example, we import the login function from Virtoo and use it to simulate a user logging into the application with a username and password. We then use Cypress to verify that the user has been redirected to the dashboard page after logging in.
 
