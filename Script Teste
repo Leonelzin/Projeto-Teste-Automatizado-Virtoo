@@ -12,11 +12,8 @@ describe('virtoo', () => {
         cy.visit('http://inf.unievangelica.edu.br/sistema/virtoo/dashboard');
         cy.get('[name="username"]').type('ADMINISTRADOR');
          
-
         cy.get('[name="senha"]').type('123456');
         cy.get('[name="acessar"]').click();
-
-        
     });
 
     it('deve pode realizar cadastro', () => {
@@ -46,8 +43,4 @@ describe('virtoo', () => {
         cy.wait(3000);
         
       });
-
-
-
-
 });
